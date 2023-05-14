@@ -6,3 +6,36 @@ html {
 *, *::after, *::before {
     box-sizing: inherit;
 }
+.header {
+    display:flex;
+    justify-content: center;
+}
+.calculator-container {
+    display:flex;
+    justify-content:center;
+    margin: 0 auto;
+    width: 500px;
+}
+.calculator-container .buttons{
+    display:flex;    
+    flex-flow: row wrap;
+    width: 200px;
+    border: 1px solid white;
+}
+.calculator-container button{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    margin: 0;
+    flex: 1 1 auto;
+    border: 1px solid white;
+}
+.calculator-container .operators {
+    border: 1px solid white;
+}
+.calculator-container .operators button {
+    height: 48px;
+}
