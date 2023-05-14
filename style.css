@@ -1,6 +1,7 @@
 html {
     box-sizing: border-box;
     background-color: #555555;
+    font-family:'Courier New', Courier, monospace
 }
 
 *, *::after, *::before {
@@ -9,49 +10,62 @@ html {
 .header {
     display:flex;
     justify-content: center;
+    font-size: 36px;
+}
+.header h1 {
+    margin: 0;
 }
 .calculator-container {
     display:flex;
     flex-flow: row wrap;
-    justify-content:center;
     margin: 0 auto;
-    width: 265px;
+    width: 300px;
+    padding: 10px;    
 }
 .calculator-container .buttons{
     display:flex;    
     flex-flow: row wrap;
     width: 200px;    
-    border: 1px solid #555555;
 }
 .calculator-container button{
+    border-left: 2px solid #ddd;
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
     display:flex;
     justify-content: center;
     align-items: center;
     width: 60px;
     height: 60px;
     font-size: 28px;
-    margin: 0;
-    flex: 1 1 auto;
-    border: 1px solid #555555;    
+    flex: 1 1 auto; 
     background-color: #888888;
 }
 .calculator-container .operators {
-    border: 1px solid #555555;
-    border-left: none;
+    display: flex;
+    align-items: flex-end;
+    flex-direction:column;
+    flex: 1 1 auto;
+    border-left: none;       
 }
 .calculator-container .operators button {
     height: 48px;
 }
 .calculator-container .display{
+    margin-top: 16px;
     display: flex;
-    background-color: #888888;
-    justify-content: flex-end;
-    align-items: flex-end;
-    width: 257px;
+    background-color: #000;
+    justify-content: flex-end;    
     font-size: 36px;
+    flex: 1 1 auto;
+    border-left: 3px solid #222;
+    border-top: 3px solid #222;
+    border-bottom: 3px solid #999;
+    border-right: 3px solid #999;
 
 }
 .calculator-container .display p {
     display:flex;
-    margin: 0;    
+    margin: 0 auto;    
+    color: #00ff00;
 }
