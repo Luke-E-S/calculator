@@ -12,15 +12,16 @@ html {
 }
 .calculator-container {
     display:flex;
+    flex-flow: row wrap;
     justify-content:center;
     margin: 0 auto;
-    width: 500px;
+    width: 265px;
 }
 .calculator-container .buttons{
     display:flex;    
     flex-flow: row wrap;
-    width: 200px;
-    border: 1px solid white;
+    width: 200px;    
+    border: 1px solid #555555;
 }
 .calculator-container button{
     display:flex;
@@ -31,11 +32,26 @@ html {
     font-size: 28px;
     margin: 0;
     flex: 1 1 auto;
-    border: 1px solid white;
+    border: 1px solid #555555;    
+    background-color: #888888;
 }
 .calculator-container .operators {
-    border: 1px solid white;
+    border: 1px solid #555555;
+    border-left: none;
 }
 .calculator-container .operators button {
     height: 48px;
+}
+.calculator-container .display{
+    display: flex;
+    background-color: #888888;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 257px;
+    font-size: 36px;
+
+}
+.calculator-container .display p {
+    display:flex;
+    margin: 0;    
 }
