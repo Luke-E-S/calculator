@@ -46,7 +46,7 @@ btnAdd.addEventListener("click", () => {
     operator = "+";
     if(firstNumber === "") {
         firstNumber = Number(display.textContent);
-    } else {
+    } else if(secondNumber === "") {
         secondNumber = Number(display.textContent);
     }
     display.textContent = "";
@@ -55,10 +55,13 @@ btnAdd.addEventListener("click", () => {
 btnEquals.addEventListener("click", () => {
     
     console.log(firstNumber, secondNumber);
+    if(secondNumber === "") {
     secondNumber = Number(display.textContent);
-    display.textContent = String(operate(firstNumber, secondNumber, operator));
-    firstNumber = display.textContent;
-    
+    }
+    display.textContent = operate(Number(firstNumber),
+                                  Number(secondNumber),
+                                  operator);
+    firstNumber = display.textContent;    
     console.log(firstNumber, secondNumber);
 });
 
