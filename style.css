@@ -53,11 +53,12 @@ html {
 }
 .calculator-container .display{
     margin-top: 16px;
+    height: 48px;
     display: flex;
     background-color: #000;
     justify-content: flex-end;    
     font-size: 36px;
-    flex: 1 1 auto;
+    flex: 1 1 30px;
     border-left: 3px solid #222;
     border-top: 3px solid #222;
     border-bottom: 3px solid #999;

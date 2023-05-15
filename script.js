@@ -39,53 +39,56 @@ const btnEight = document.getElementById("eight");
 const btnNine = document.getElementById("nine");
 const btnZero = document.getElementById("zero");
 
+const btnAdd = document.querySelector("#add");
+const btnEquals = document.querySelector("#equals");
+
+btnAdd.addEventListener("click", () => {
+    operator = "+";
+    if(firstNumber === "") {
+        firstNumber = Number(display.textContent);
+    } else {
+        secondNumber = Number(display.textContent);
+    }
+    display.textContent = "";
+    console.log(firstNumber, secondNumber);
+});
+btnEquals.addEventListener("click", () => {
+    
+    console.log(firstNumber, secondNumber);
+    secondNumber = Number(display.textContent);
+    display.textContent = String(operate(firstNumber, secondNumber, operator));
+    firstNumber = display.textContent;
+    
+    console.log(firstNumber, secondNumber);
+});
+
 btnOne.addEventListener("click", () => {
-    firstNumber += "1";
-    display.textContent = firstNumber;
-    }
-);
+    display.textContent += "1";
+});
 btnTwo.addEventListener("click", () => {
-    firstNumber += "2";
-    display.textContent = firstNumber;
-    }
-);
+    display.textContent += "2";
+});
 btnThree.addEventListener("click", () => {
-    firstNumber += "3";
-    display.textContent = firstNumber;
-    }
-);
+    display.textContent += "3";
+});
 btnFour.addEventListener("click", () => {
-    firstNumber += "4";
-    display.textContent = firstNumber;
-    }
-);
+    display.textContent += "4";
+});
 btnFive.addEventListener("click", () => {
-    firstNumber += "5";
-    display.textContent = firstNumber;
-    }
-);
+    display.textContent += "5";
+});
 btnSix.addEventListener("click", () => {
-    firstNumber += "6";
-    display.textContent = firstNumber;
-    }
-);
+    display.textContent += "6";
+});
 btnSeven.addEventListener("click", () => {
-    firstNumber += "7";
-    display.textContent = firstNumber;
-    }
-);
+    display.textContent += "7";
+});
 btnEight.addEventListener("click", () => {
-    firstNumber += "8";
-    display.textContent = firstNumber;
-    }
-);
+    display.textContent += "8";
+});
 btnNine.addEventListener("click", () => {
-    firstNumber += "9";
-    display.textContent = firstNumber;
-    }
-);
+    display.textContent += "9";
+});
 btnZero.addEventListener("click", () => {
-    firstNumber += "0";
-    display.textContent = firstNumber;
-    }
-);
+    display.textContent += "0";
+}); 
