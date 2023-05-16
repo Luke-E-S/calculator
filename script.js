@@ -27,6 +27,18 @@ function operate(n1, n2, op) {
         return divide(n1, n2);
     }
 }
+
+function reset() {
+    operator = "";
+    firstNumber = "";
+    secondNumber = "";
+    display.textContent = "";
+}
+
+function readyForInput(){
+    operator = "";
+    secondNumber = "";
+}
 const display = document.querySelector("#display");
 const btnOne = document.getElementById("one");
 const btnTwo = document.getElementById("two");
@@ -40,37 +52,48 @@ const btnNine = document.getElementById("nine");
 const btnZero = document.getElementById("zero");
 
 const btnAdd = document.querySelector("#add");
+const btnSubtract = document.querySelector("#subtract");
+const btnMultiply = document.querySelector("#multiply");
+const btnDivide = document.querySelector("#divide");
 const btnEquals = document.querySelector("#equals");
 
 const btnReset = document.querySelector("#reset");
 
-function reset() {
-    operator = "";
-    firstNumber = "";
-    secondNumber = "";
-    display.textContent = "";
-}
-function readyForInput(){
-    operator = "";
-    secondNumber = "";
-}
 btnAdd.addEventListener("click", () => {
-    operator = "+";
-    
+    if (firstNumber === "") { return; }
+    if (operator === "") { 
+    operator = "+"; 
     display.textContent += "+";
-    console.log(firstNumber, secondNumber);
+    }
+});
+btnSubtract.addEventListener("click", () => {
+    if (firstNumber === "") { return; }
+    if (operator === "") { 
+    operator = "-"; 
+    display.textContent += "-";
+    }
+});
+btnMultiply.addEventListener("click", () => {
+    if (firstNumber === "") { return; }
+    if (operator === "") { 
+    operator = "*"; 
+    display.textContent += "*";
+    }
+});
+btnDivide.addEventListener("click", () => {
+    if (firstNumber === "") { return; }
+    if (operator === "") { 
+    operator = "/"; 
+    display.textContent += "/";
+    }
 });
 btnEquals.addEventListener("click", () => {
-    if(secondNumber === ""){
-        return;
-    }
+    if(secondNumber === ""){ return; }
     let result = "";
-    console.log(firstNumber, secondNumber);
     result = operate(Number(firstNumber), Number(secondNumber), operator);
     firstNumber = result;    
     display.textContent = result;
     readyForInput();
-    console.log(firstNumber, secondNumber);
 });
 
 btnReset.addEventListener("click", reset);
