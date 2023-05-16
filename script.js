@@ -98,7 +98,7 @@ btnAdd.addEventListener("click", () => {
         display.textContent += " + ";
     }  
     else if(text.charAt(text.length - 1) === "+") {
-        /**stop recurring '+' characters */
+        /**stop recurring characters */
         return;
     }
     else {
@@ -109,33 +109,66 @@ btnAdd.addEventListener("click", () => {
     }
 });
 btnSubtract.addEventListener("click", () => {
+    const text = display.textContent;
     if (firstNumber === "") { return; }
-    else if(secondNumber !== "") {
-        
-    }
     if (operator === "") { 
+        /**we need to check this so we do not get a NaN
+         * becaues there is no two numbers to evaluate
+         */
         operator = "-"; 
         display.textContent += " - ";
+    }  
+    else if(text.charAt(text.length - 1) === "-") {
+        /**stop recurring characters */
+        return;
+    }
+    else {
+        operator = "-"; 
+        display.textContent += " - ";
+        firstNumber = result;
+        secondNumber = "";
     }
 });
 btnMultiply.addEventListener("click", () => {
+    const text = display.textContent;
     if (firstNumber === "") { return; }
-    else if(secondNumber !== "") {
-        
-    }
     if (operator === "") { 
+        /**we need to check this so we do not get a NaN
+         * becaues there is no two numbers to evaluate
+         */
         operator = "*"; 
         display.textContent += " * ";
+    }  
+    else if(text.charAt(text.length - 1) === "*") {
+        /**stop recurring characters */
+        return;
+    }
+    else {
+        operator = "*"; 
+        display.textContent += " * ";
+        firstNumber = result;
+        secondNumber = "";
     }
 });
 btnDivide.addEventListener("click", () => {
+    const text = display.textContent;
     if (firstNumber === "") { return; }
-    else if(secondNumber !== "") {
-        
-    }
     if (operator === "") { 
+        /**we need to check this so we do not get a NaN
+         * becaues there is no two numbers to evaluate
+         */
         operator = "/"; 
         display.textContent += " / ";
+    }  
+    else if(text.charAt(text.length - 1) === "/") {
+        /**stop recurring characters */
+        return;
+    }
+    else {
+        operator = "/"; 
+        display.textContent += " / ";
+        firstNumber = result;
+        secondNumber = "";
     }
 });
 btnEquals.addEventListener("click", () => {
