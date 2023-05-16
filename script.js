@@ -42,56 +42,89 @@ const btnZero = document.getElementById("zero");
 const btnAdd = document.querySelector("#add");
 const btnEquals = document.querySelector("#equals");
 
+function reset() {
+
+}
+function readyForInput(){
+    operator = "";
+    secondNumber = "";
+}
 btnAdd.addEventListener("click", () => {
     operator = "+";
-    if(firstNumber === "") {
-        firstNumber = Number(display.textContent);
-    } else if(secondNumber === "") {
-        secondNumber = Number(display.textContent);
-    }
-    display.textContent = "";
+    
+    display.textContent += "+";
     console.log(firstNumber, secondNumber);
 });
 btnEquals.addEventListener("click", () => {
-    
-    console.log(firstNumber, secondNumber);
-    if(secondNumber === "") {
-    secondNumber = Number(display.textContent);
+    if(secondNumber === ""){
+        return;
     }
-    display.textContent = operate(Number(firstNumber),
-                                  Number(secondNumber),
-                                  operator);
-    firstNumber = display.textContent;    
+    let result = "";
+    console.log(firstNumber, secondNumber);
+    result = operate(Number(firstNumber), Number(secondNumber), operator);
+    firstNumber = result;    
+    display.textContent = result;
+    readyForInput();
     console.log(firstNumber, secondNumber);
 });
 
 btnOne.addEventListener("click", () => {
+    if(operator === "") {
+        firstNumber += "1";
+    } else { secondNumber += "1"; }
     display.textContent += "1";
 });
 btnTwo.addEventListener("click", () => {
+    if(operator === "") {
+        firstNumber += "2";
+    } else { secondNumber += "2"; }
     display.textContent += "2";
 });
 btnThree.addEventListener("click", () => {
+    if(operator === "") {
+        firstNumber += "3";
+    } else { secondNumber += "3"; }
     display.textContent += "3";
 });
 btnFour.addEventListener("click", () => {
+    if(operator === "") {
+        firstNumber += "4";
+    } else { secondNumber += "4"; }
     display.textContent += "4";
 });
 btnFive.addEventListener("click", () => {
+    if(operator === "") {
+        firstNumber += "5";
+    } else { secondNumber += "5"; }
     display.textContent += "5";
 });
 btnSix.addEventListener("click", () => {
+    if(operator === "") {
+        firstNumber += "6";
+    } else { secondNumber += "6"; }
     display.textContent += "6";
 });
 btnSeven.addEventListener("click", () => {
+    if(operator === "") {
+        firstNumber += "7";
+    } else { secondNumber += "7"; }
     display.textContent += "7";
 });
 btnEight.addEventListener("click", () => {
+    if(operator === "") {
+        firstNumber += "8";
+    } else { secondNumber += "8"; }
     display.textContent += "8";
 });
 btnNine.addEventListener("click", () => {
+    if(operator === "") {
+        firstNumber += "9";
+    } else { secondNumber += "9"; }
     display.textContent += "9";
 });
 btnZero.addEventListener("click", () => {
+    if(operator === "") {
+        firstNumber += "0";
+    } else { secondNumber += "0"; }
     display.textContent += "0";
 }); 
