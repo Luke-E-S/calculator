@@ -75,7 +75,7 @@ btnAdd.addEventListener("click", () => {
     }
     if (operator === "") { 
         operator = "+"; 
-        display.textContent += "+";
+        display.textContent += " + ";
     }
 });
 btnSubtract.addEventListener("click", () => {
@@ -85,7 +85,7 @@ btnSubtract.addEventListener("click", () => {
     }
     if (operator === "") { 
         operator = "-"; 
-        display.textContent += "-";
+        display.textContent += " - ";
     }
 });
 btnMultiply.addEventListener("click", () => {
@@ -95,7 +95,7 @@ btnMultiply.addEventListener("click", () => {
     }
     if (operator === "") { 
         operator = "*"; 
-        display.textContent += "*";
+        display.textContent += " * ";
     }
 });
 btnDivide.addEventListener("click", () => {
@@ -105,7 +105,7 @@ btnDivide.addEventListener("click", () => {
     }
     if (operator === "") { 
         operator = "/"; 
-        display.textContent += "/";
+        display.textContent += " / ";
     }
 });
 btnEquals.addEventListener("click", () => {
