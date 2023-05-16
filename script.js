@@ -1,4 +1,4 @@
-let [firstNumber, secondNumber, operator] = ["", "", ""];
+let [firstNumber, secondNumber, operator, result] = ["", "", "", 0];
 
 function add(a, b) {
     return a+b;
@@ -33,26 +33,30 @@ function reset() {
     firstNumber = "";
     secondNumber = "";
     display.textContent = "";
+    resultDisplay.textContent = "";
+    result = 0;
 }
 
 function readyForInput(){
-    operator = "";
+    firstNumber = result;
     secondNumber = "";
 }
 
 function evaluate() {
+    console.log(firstNumber, secondNumber);
     if(secondNumber === ""){ return; }
-    let result = "";
     result = operate(Number(firstNumber), Number(secondNumber), operator);
-    firstNumber = result;   
-    display.textContent = result;
-    readyForInput();
+    firstNumber = result;
+    updateResultDisplay();
 }
 
 function updateResultDisplay() {
-    
+    result = operate(Number(firstNumber), Number(secondNumber), operator);
+    resultDisplay.textContent = result;
+    console.log(firstNumber, secondNumber);
 }
 const display = document.querySelector("#display");
+const resultDisplay = document.querySelector("#result");
 const btnOne = document.getElementById("one");
 const btnTwo = document.getElementById("two");
 const btnThree = document.getElementById("three");
@@ -72,20 +76,42 @@ const btnEquals = document.querySelector("#equals");
 
 const btnReset = document.querySelector("#reset");
 
+
+/**OPERATORS EVENTS
+ * operators are mainly used for checks and just
+ * set the operator variable to the correct character
+ * 
+ * they also move some variables about but never actually
+ * evaluate anything.
+ * 
+ */
+/**ADDITION
+ */
 btnAdd.addEventListener("click", () => {
+    const text = display.textContent;
     if (firstNumber === "") { return; }
-    else if(secondNumber !== "") {
-        evaluate();
-    }
     if (operator === "") { 
+        /**we need to check this so we do not get a NaN
+         * becaues there is no two numbers to evaluate
+         */
         operator = "+"; 
         display.textContent += " + ";
+    }  
+    else if(text.charAt(text.length - 1) === "+") {
+        /**stop recurring '+' characters */
+        return;
+    }
+    else {
+        operator = "+"; 
+        display.textContent += " + ";
+        firstNumber = result;
+        secondNumber = "";
     }
 });
 btnSubtract.addEventListener("click", () => {
     if (firstNumber === "") { return; }
     else if(secondNumber !== "") {
-        evaluate();
+        
     }
     if (operator === "") { 
         operator = "-"; 
@@ -95,7 +121,7 @@ btnSubtract.addEventListener("click", () => {
 btnMultiply.addEventListener("click", () => {
     if (firstNumber === "") { return; }
     else if(secondNumber !== "") {
-        evaluate();
+        
     }
     if (operator === "") { 
         operator = "*"; 
@@ -105,7 +131,7 @@ btnMultiply.addEventListener("click", () => {
 btnDivide.addEventListener("click", () => {
     if (firstNumber === "") { return; }
     else if(secondNumber !== "") {
-        evaluate();
+        
     }
     if (operator === "") { 
         operator = "/"; 
@@ -116,65 +142,83 @@ btnEquals.addEventListener("click", () => {
     evaluate();
 });
 
+/**RESET BUTTON - Not hiding at all */
 btnReset.addEventListener("click", reset);
 
+
+/**NUMBER BUTTONS
+ * clicking a number actually does some math and updates
+ * the results display, it also has some logic to check
+ * which variable to store the number in
+ */
 btnOne.addEventListener("click", () => {
     if(operator === "") {
         firstNumber += "1";
     } else { secondNumber += "1"; }
     display.textContent += "1";
+    updateResultDisplay();
 });
 btnTwo.addEventListener("click", () => {
     if(operator === "") {
         firstNumber += "2";
     } else { secondNumber += "2"; }
     display.textContent += "2";
+    updateResultDisplay();
+    
 });
 btnThree.addEventListener("click", () => {
     if(operator === "") {
         firstNumber += "3";
     } else { secondNumber += "3"; }
     display.textContent += "3";
+    updateResultDisplay();
 });
 btnFour.addEventListener("click", () => {
     if(operator === "") {
         firstNumber += "4";
     } else { secondNumber += "4"; }
     display.textContent += "4";
+    updateResultDisplay();
 });
 btnFive.addEventListener("click", () => {
     if(operator === "") {
         firstNumber += "5";
     } else { secondNumber += "5"; }
     display.textContent += "5";
+    updateResultDisplay();
 });
 btnSix.addEventListener("click", () => {
     if(operator === "") {
         firstNumber += "6";
     } else { secondNumber += "6"; }
     display.textContent += "6";
+    updateResultDisplay();
 });
 btnSeven.addEventListener("click", () => {
     if(operator === "") {
         firstNumber += "7";
     } else { secondNumber += "7"; }
     display.textContent += "7";
+    updateResultDisplay();
 });
 btnEight.addEventListener("click", () => {
     if(operator === "") {
         firstNumber += "8";
     } else { secondNumber += "8"; }
     display.textContent += "8";
+    updateResultDisplay();
 });
 btnNine.addEventListener("click", () => {
     if(operator === "") {
         firstNumber += "9";
     } else { secondNumber += "9"; }
     display.textContent += "9";
+    updateResultDisplay();
 });
 btnZero.addEventListener("click", () => {
     if(operator === "") {
         firstNumber += "0";
     } else { secondNumber += "0"; }
     display.textContent += "0";
+    updateResultDisplay();
 }); 
