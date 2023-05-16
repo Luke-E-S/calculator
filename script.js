@@ -48,6 +48,10 @@ function evaluate() {
     display.textContent = result;
     readyForInput();
 }
+
+function updateResultDisplay() {
+    
+}
 const display = document.querySelector("#display");
 const btnOne = document.getElementById("one");
 const btnTwo = document.getElementById("two");

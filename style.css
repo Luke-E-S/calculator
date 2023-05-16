@@ -59,7 +59,7 @@ html {
     justify-content: flex-end; 
     align-items: center;   
     font-size: 24px;
-    flex: 1 200px;
+    flex: 1 150px;
     border-left: 3px solid #222;
     border-top: 3px solid #222;
     border-bottom: 3px solid #999;
@@ -67,6 +67,25 @@ html {
 
 }
 .calculator-container .display p {
+    display:flex;
+    margin: 0 auto;    
+    color: #00ff00;
+}
+.calculator-container .result{
+    margin-top: 16px;
+    height: 48px;
+    display: flex;
+    background-color: #000;
+    justify-content: flex-end; 
+    align-items: center;   
+    font-size: 24px;
+    flex: 1 auto;
+    border-left: 3px solid #222;
+    border-top: 3px solid #222;
+    border-bottom: 3px solid #999;
+    border-right: 3px solid #999;
+}
+.calculator-container .result p {
     display:flex;
     margin: 0 auto;    
     color: #00ff00;
