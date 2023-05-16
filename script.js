@@ -42,8 +42,13 @@ const btnZero = document.getElementById("zero");
 const btnAdd = document.querySelector("#add");
 const btnEquals = document.querySelector("#equals");
 
-function reset() {
+const btnReset = document.querySelector("#reset");
 
+function reset() {
+    operator = "";
+    firstNumber = "";
+    secondNumber = "";
+    display.textContent = "";
 }
 function readyForInput(){
     operator = "";
@@ -67,6 +72,8 @@ btnEquals.addEventListener("click", () => {
     readyForInput();
     console.log(firstNumber, secondNumber);
 });
+
+btnReset.addEventListener("click", reset);
 
 btnOne.addEventListener("click", () => {
     if(operator === "") {
