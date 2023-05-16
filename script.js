@@ -1,3 +1,16 @@
+/**ToDO
+ * 
+ * fix/remove = button
+ * 
+ * equal button could display result in main display, then
+ * number buttons could check for result being equal to display
+ * if so call reset
+ * 
+ * fix recuring of alternate symbols EG +*-/+/ should not be able to
+ * be displayed
+ */
+
+
 let [firstNumber, secondNumber, operator, result] = ["", "", "", 0];
 
 function add(a, b) {
@@ -42,18 +55,10 @@ function readyForInput(){
     secondNumber = "";
 }
 
-function evaluate() {
-    console.log(firstNumber, secondNumber);
-    if(secondNumber === ""){ return; }
-    result = operate(Number(firstNumber), Number(secondNumber), operator);
-    firstNumber = result;
-    updateResultDisplay();
-}
-
 function updateResultDisplay() {
     result = operate(Number(firstNumber), Number(secondNumber), operator);
     resultDisplay.textContent = result;
-    console.log(firstNumber, secondNumber);
+    /*console.log(firstNumber, secondNumber);*/
 }
 const display = document.querySelector("#display");
 const resultDisplay = document.querySelector("#result");
