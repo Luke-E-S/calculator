@@ -39,6 +39,15 @@ function readyForInput(){
     operator = "";
     secondNumber = "";
 }
+
+function evaluate() {
+    if(secondNumber === ""){ return; }
+    let result = "";
+    result = operate(Number(firstNumber), Number(secondNumber), operator);
+    firstNumber = result;   
+    display.textContent = result;
+    readyForInput();
+}
 const display = document.querySelector("#display");
 const btnOne = document.getElementById("one");
 const btnTwo = document.getElementById("two");
@@ -61,39 +70,46 @@ const btnReset = document.querySelector("#reset");
 
 btnAdd.addEventListener("click", () => {
     if (firstNumber === "") { return; }
+    else if(secondNumber !== "") {
+        evaluate();
+    }
     if (operator === "") { 
-    operator = "+"; 
-    display.textContent += "+";
+        operator = "+"; 
+        display.textContent += "+";
     }
 });
 btnSubtract.addEventListener("click", () => {
     if (firstNumber === "") { return; }
+    else if(secondNumber !== "") {
+        evaluate();
+    }
     if (operator === "") { 
-    operator = "-"; 
-    display.textContent += "-";
+        operator = "-"; 
+        display.textContent += "-";
     }
 });
 btnMultiply.addEventListener("click", () => {
     if (firstNumber === "") { return; }
+    else if(secondNumber !== "") {
+        evaluate();
+    }
     if (operator === "") { 
-    operator = "*"; 
-    display.textContent += "*";
+        operator = "*"; 
+        display.textContent += "*";
     }
 });
 btnDivide.addEventListener("click", () => {
     if (firstNumber === "") { return; }
+    else if(secondNumber !== "") {
+        evaluate();
+    }
     if (operator === "") { 
-    operator = "/"; 
-    display.textContent += "/";
+        operator = "/"; 
+        display.textContent += "/";
     }
 });
 btnEquals.addEventListener("click", () => {
-    if(secondNumber === ""){ return; }
-    let result = "";
-    result = operate(Number(firstNumber), Number(secondNumber), operator);
-    firstNumber = result;    
-    display.textContent = result;
-    readyForInput();
+    evaluate();
 });
 
 btnReset.addEventListener("click", reset);
