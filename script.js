@@ -89,19 +89,17 @@ const btnReset = document.querySelector("#reset");
  */
 btnAdd.addEventListener("click", () => {
     const text = display.textContent;
-    if (firstNumber === "") { return; }
+    if( text.charAt(text.length - 2) === "+" ||
+    firstNumber === "") {
+    return;
+}
     if (operator === "") { 
         /**we need to check this so we do not get a NaN
          * becaues there is no two numbers to evaluate
          */
         operator = "+"; 
         display.textContent += " + ";
-    }  
-    else if(text.charAt(text.length - 1) === "+") {
-        /**stop recurring characters */
-        return;
-    }
-    else {
+    } else {
         operator = "+"; 
         display.textContent += " + ";
         firstNumber = result;
@@ -110,19 +108,17 @@ btnAdd.addEventListener("click", () => {
 });
 btnSubtract.addEventListener("click", () => {
     const text = display.textContent;
-    if (firstNumber === "") { return; }
+    if( text.charAt(text.length - 2) === "-" ||
+        firstNumber === "") {
+        return;
+    }
     if (operator === "") { 
         /**we need to check this so we do not get a NaN
          * becaues there is no two numbers to evaluate
          */
         operator = "-"; 
         display.textContent += " - ";
-    }  
-    else if(text.charAt(text.length - 1) === "-") {
-        /**stop recurring characters */
-        return;
-    }
-    else {
+    } else {
         operator = "-"; 
         display.textContent += " - ";
         firstNumber = result;
@@ -131,19 +127,17 @@ btnSubtract.addEventListener("click", () => {
 });
 btnMultiply.addEventListener("click", () => {
     const text = display.textContent;
-    if (firstNumber === "") { return; }
+    if( text.charAt(text.length - 2) === "*" ||
+        firstNumber === "") {
+        return;
+    }
     if (operator === "") { 
         /**we need to check this so we do not get a NaN
          * becaues there is no two numbers to evaluate
          */
         operator = "*"; 
         display.textContent += " * ";
-    }  
-    else if(text.charAt(text.length - 1) === "*") {
-        /**stop recurring characters */
-        return;
-    }
-    else {
+    } else {
         operator = "*"; 
         display.textContent += " * ";
         firstNumber = result;
@@ -152,19 +146,17 @@ btnMultiply.addEventListener("click", () => {
 });
 btnDivide.addEventListener("click", () => {
     const text = display.textContent;
-    if (firstNumber === "") { return; }
+    if( text.charAt(text.length - 2) === "/" ||
+        firstNumber === "") {
+        return;
+    }
     if (operator === "") { 
         /**we need to check this so we do not get a NaN
          * becaues there is no two numbers to evaluate
          */
         operator = "/"; 
         display.textContent += " / ";
-    }  
-    else if(text.charAt(text.length - 1) === "/") {
-        /**stop recurring characters */
-        return;
-    }
-    else {
+    } else {
         operator = "/"; 
         display.textContent += " / ";
         firstNumber = result;
@@ -172,7 +164,11 @@ btnDivide.addEventListener("click", () => {
     }
 });
 btnEquals.addEventListener("click", () => {
-    evaluate();
+    const text = display.textContent;
+    if( text.charAt(text.length - 1) === "=" ||
+        firstNumber === "") {
+        return;
+    } else { display.textContent += " ="; }
 });
 
 /**RESET BUTTON - Not hiding at all */
